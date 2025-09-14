@@ -120,7 +120,10 @@ export const ChatProvider = ({ children }) => {
   const getUsers = async () => {
     try {
       console.log("Fetching users...");
-      const { data } = await axios.get("/api/messages/users");
+      const { data } = await axios.get(
+        "http://localhost:5000/api/messages/users",
+        { withCredentials: true }
+      );
 
       if (data.success) {
         const otherUsers = data.users.filter(

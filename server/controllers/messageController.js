@@ -119,6 +119,8 @@ export const getUserForSidebar = async (req, res) => {
     const filterUsers = await User.find({ _id: { $ne: userID } }).select(
       "-password"
     );
+    console.log("Filtered Users:", filterUsers);
+    console.log("User ID:", userID);
 
     if (!filterUsers || filterUsers.length === 0) {
       return res
